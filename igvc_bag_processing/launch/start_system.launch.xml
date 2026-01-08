@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launch>
+
+    <!-- Static TF transforms between vehicle frame and the LIDAR and camera frames -->
+    <node pkg="tf2_ros" exec="static_transform_publisher" name="footprint_to_laser" args="--x 0.165 --y 0.000 --z 0.507 --roll 0 --pitch 0 --yaw 0 --frame-id base_footprint --child-frame-id laser" />
+    <node pkg="tf2_ros" exec="static_transform_publisher" name="footprint_to_camera" args="--x -0.102 --y 0.073 --z 1.544 --qx 0.657 --qy -0.629 --qz 0.289 --qw -0.299 --frame-id base_footprint --child-frame-id stereo_left" />
+
+    <!-- RViz configuration to visualize the sensor data -->
+    <node pkg="rviz2" exec="rviz2" name="sensor_viz" args="-d $(find-pkg-share igvc_bag_processing)/rviz/sensor_viz.rviz">
+        <param name="use_sim_time" value="true" />
+    </node>
+
+</launch>
