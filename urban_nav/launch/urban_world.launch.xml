@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<launch>
+
+    <include file="$(find-pkg-share ece5532_gazebo)/launch/gazebo_bringup.launch.py">
+        <arg name="world_sdf_file" value="$(find-pkg-share urban_nav)/worlds/urban_world.sdf"/>
+        <arg name="robot_sdf_file" value="$(find-pkg-share audibot_description)/models/orange_audibot/model.sdf"/>
+        <arg name="gz_bridge_file" value="$(find-pkg-share audibot_gazebo)/config/ros_gz_bridge.yaml" />
+    </include>
+
+    <include file="$(find-pkg-share audibot_lane_keeping)/launch/audibot_lane_keeping.launch.py">
+        <arg name="speed" value="5.0" />
+        <arg name="use_white_lines" value="false" />
+        <arg name="use_yellow_lines" value="true" />
+    </include>
+
+    <node pkg="rviz2" exec="rviz2" args="-d $(find-pkg-share urban_nav)/rviz/urban_nav.rviz" />
+
+</launch>

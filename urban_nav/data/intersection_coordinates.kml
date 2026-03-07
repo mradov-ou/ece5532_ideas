@@ -1,0 +1,208 @@
+<?xml version="1.0" ?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Urban Navigation Intersection Nodes</name>
+    <description>Intersection coordinates for urban navigation project</description>
+    <Style id="nodeStyle">
+      <IconStyle>
+        <color>ff0000ff</color>
+        <scale>1.2</scale>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0.8</scale>
+      </LabelStyle>
+    </Style>
+    <Placemark>
+      <name>Node 0</name>
+      <description>Node ID: 0
+Latitude: 42.67200000
+Longitude: -83.21557000
+X (East): 0 m
+Y (North): 0 m</description>
+      <styleUrl>#nodeStyle</styleUrl>
+      <Point>
+        <coordinates>-83.21557,42.672,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Node 1</name>
+      <description>Node ID: 1
+Latitude: 42.67281018
+Longitude: -83.21557000
+X (East): 0 m
+Y (North): 90 m</description>
+      <styleUrl>#nodeStyle</styleUrl>
+      <Point>
+        <coordinates>-83.21557,42.67281018,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Node 2</name>
+      <description>Node ID: 2
+Latitude: 42.67362036
+Longitude: -83.21557000
+X (East): 0 m
+Y (North): 180 m</description>
+      <styleUrl>#nodeStyle</styleUrl>
+      <Point>
+        <coordinates>-83.21557,42.67362036,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Node 3</name>
+      <description>Node ID: 3
+Latitude: 42.67533074
+Longitude: -83.21678991
+X (East): -100 m
+Y (North): 370 m</description>
+      <styleUrl>#nodeStyle</styleUrl>
+      <Point>
+        <coordinates>-83.21678991,42.67533074,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Node 4</name>
+      <description>Node ID: 4
+Latitude: 42.67614092
+Longitude: -83.21678991
+X (East): -100 m
+Y (North): 460 m</description>
+      <styleUrl>#nodeStyle</styleUrl>
+      <Point>
+        <coordinates>-83.21678991,42.67614092,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Node 5</name>
+      <description>Node ID: 5
+Latitude: 42.67533074
+Longitude: -83.21361815
+X (East): 160 m
+Y (North): 370 m</description>
+      <styleUrl>#nodeStyle</styleUrl>
+      <Point>
+        <coordinates>-83.21361815,42.67533074,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Node 6</name>
+      <description>Node ID: 6
+Latitude: 42.67452056
+Longitude: -83.21361815
+X (East): 160 m
+Y (North): 280 m</description>
+      <styleUrl>#nodeStyle</styleUrl>
+      <Point>
+        <coordinates>-83.21361815,42.67452056,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Node 7</name>
+      <description>Node ID: 7
+Latitude: 42.67533074
+Longitude: -83.21227625
+X (East): 270 m
+Y (North): 370 m</description>
+      <styleUrl>#nodeStyle</styleUrl>
+      <Point>
+        <coordinates>-83.21227625,42.67533074,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Node 8</name>
+      <description>Node ID: 8
+Latitude: 42.67533074
+Longitude: -83.21117833
+X (East): 360 m
+Y (North): 370 m</description>
+      <styleUrl>#nodeStyle</styleUrl>
+      <Point>
+        <coordinates>-83.21117833,42.67533074,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Node 9</name>
+      <description>Node ID: 9
+Latitude: 42.67452056
+Longitude: -83.21227625
+X (East): 270 m
+Y (North): 280 m</description>
+      <styleUrl>#nodeStyle</styleUrl>
+      <Point>
+        <coordinates>-83.21227625,42.67452056,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Node 10</name>
+      <description>Node ID: 10
+Latitude: 42.67362036
+Longitude: -83.21337416
+X (East): 180 m
+Y (North): 180 m</description>
+      <styleUrl>#nodeStyle</styleUrl>
+      <Point>
+        <coordinates>-83.21337416,42.67362036,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Node 11</name>
+      <description>Node ID: 11
+Latitude: 42.67281018
+Longitude: -83.21337416
+X (East): 180 m
+Y (North): 90 m</description>
+      <styleUrl>#nodeStyle</styleUrl>
+      <Point>
+        <coordinates>-83.21337416,42.67281018,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Node 12</name>
+      <description>Node ID: 12
+Latitude: 42.67281018
+Longitude: -83.21447208
+X (East): 90 m
+Y (North): 90 m</description>
+      <styleUrl>#nodeStyle</styleUrl>
+      <Point>
+        <coordinates>-83.21447208,42.67281018,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Node 13</name>
+      <description>Node ID: 13
+Latitude: 42.67362036
+Longitude: -83.21447208
+X (East): 90 m
+Y (North): 180 m</description>
+      <styleUrl>#nodeStyle</styleUrl>
+      <Point>
+        <coordinates>-83.21447208,42.67362036,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Node 14</name>
+      <description>Node ID: 14
+Latitude: 42.67425050
+Longitude: -83.21886375
+X (East): -270 m
+Y (North): 250 m</description>
+      <styleUrl>#nodeStyle</styleUrl>
+      <Point>
+        <coordinates>-83.21886375,42.6742505,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Node 15</name>
+      <description>Node ID: 15
+Latitude: 42.67425050
+Longitude: -83.21776584
+X (East): -180 m
+Y (North): 250 m</description>
+      <styleUrl>#nodeStyle</styleUrl>
+      <Point>
+        <coordinates>-83.21776584,42.6742505,0</coordinates>
+      </Point>
+    </Placemark>
+  </Document>
+</kml>
