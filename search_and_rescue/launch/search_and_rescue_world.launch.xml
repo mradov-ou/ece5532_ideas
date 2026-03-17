@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<launch>
+
+    <include file="$(find-pkg-share ece5532_gazebo)/launch/gazebo_bringup.launch.py">
+        <arg name="world_sdf_file" value="$(find-pkg-share search_and_rescue)/worlds/search_and_rescue_world.sdf"/>
+        <arg name="robot_sdf_file" value="$(find-pkg-share roundbot_description)/models/roundbot/model.sdf"/>
+        <arg name="gz_bridge_file" value="$(find-pkg-share roundbot_gazebo)/config/ros_gz_bridge.yaml" />
+    </include>
+
+    <include file="$(find-pkg-share yolo_bringup)/launch/yolo.launch.py">
+        <arg name="input_image_topic" value="/roundbot/image_raw" />
+    </include>
+
+    <node pkg="topic_tools" exec="relay" name="camera_info_repub" args="/roundbot/camera_info /yolo/camera_info" />
+
+    <node pkg="rviz2" exec="rviz2" args="-d $(find-pkg-share search_and_rescue)/rviz/search_and_rescue.rviz" />
+
+</launch>

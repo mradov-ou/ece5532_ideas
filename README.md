@@ -32,6 +32,15 @@ For more details, see the [project-specific README](self_balancing_control/READM
     <img alt="Self-Balancing Robot" src="img/self_balancing_robot.png" height="300">
 </p>
 
+## Building Search and Rescue
+
+For more details, see the [project-specific README](search_and_rescue/README.md)
+
+<p float="left">
+  <img src="img/search_and_rescue_building.png" width="70%" />
+  <img src="img/search_and_rescue_yolo.png" width="29%" />
+</p>
+
 ## Warehouse Floor Cleaning
 
 This project involves leveraging the capabilities of the ROS 2 Navigation Stack to implement a floor cleaning algorithm similar to commercial robot vacuums.
@@ -42,10 +51,3 @@ For more details, see the [project-specific README](floor_cleaning/README.md)
     <img alt="Warehouse Environment" src="img/warehouse_environment.png" height="300">
 </p>
 
-## Maze Search and Rescue
-
-This project involves using the ROS 2 Navigation Stack and machine vision to search a maze for people and animals.
-
-[more to come]
-
-For more details, see the [project-specific README](search_and_rescue/README.md)
