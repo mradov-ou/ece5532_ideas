@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<launch>
+
+    <include file="$(find-pkg-share ece5532_gazebo)/launch/gazebo_bringup.launch.py">
+        <arg name="world_sdf_file" value="$(find-pkg-share floor_cleaning)/worlds/floor_cleaning_world.sdf"/>
+        <arg name="robot_sdf_file" value="$(find-pkg-share roundbot_description)/models/roundbot/model.sdf"/>
+        <arg name="gz_bridge_file" value="$(find-pkg-share roundbot_gazebo)/config/ros_gz_bridge.yaml" />
+    </include>
+
+    <node pkg="rviz2" exec="rviz2" name="rviz2" output="screen" args="-d $(find-pkg-share floor_cleaning)/rviz/floor_cleaning.rviz">
+        <param name="use_sim_time" value="true"/>
+    </node>
+
+</launch>

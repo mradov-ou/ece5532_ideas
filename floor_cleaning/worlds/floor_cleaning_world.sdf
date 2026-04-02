@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='ASCII'?>
+<sdf version='1.7'>
+  <world name='world_demo'>
+    <!-- Common settings-->
+    <plugin name='gz::sim::systems::Physics' filename='gz-sim-physics-system'/>
+    <plugin name='gz::sim::systems::UserCommands' filename='gz-sim-user-commands-system'/>
+    <plugin name='gz::sim::systems::SceneBroadcaster' filename='gz-sim-scene-broadcaster-system'/>
+    <plugin name='gz::sim::systems::Contact' filename='gz-sim-contact-system'/>
+    <plugin name='gz::sim::systems::Sensors' filename='gz-sim-sensors-system'>
+      <render_engine>ogre</render_engine>
+    </plugin>
+    <physics name='1ms' type='ignored'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <light name='sun' type='directional'>
+      <pose>0 0 10 0 -0 0</pose>
+      <cast_shadows>true</cast_shadows>
+      <intensity>1</intensity>
+      <direction>-0.5 0.1 -0.9</direction>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <linear>0.01</linear>
+        <constant>0.90000000000000002</constant>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <spot>
+        <inner_angle>0</inner_angle>
+        <outer_angle>0</outer_angle>
+        <falloff>0</falloff>
+      </spot>
+    </light>
+    <!-- -->
+
+    <model name="warehouse">
+      <static>true</static>
+      <self_collide>false</self_collide>
+      <pose>7.19009 1.09982 0 0 0 0</pose>
+      <include merge="true">
+        <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Depot</uri>
+      </include>
+    </model>
+
+    <model name="roundbot">
+      <self_collide>true</self_collide>
+      <pose>-6 6 0 0 0 0</pose>
+      <include merge="true">
+        <uri>package://roundbot_description/models/roundbot</uri>
+      </include>
+    </model>
+  </world>
+</sdf>

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>floor_cleaning</name>
+  <version>0.0.0</version>
+  <description>
+    Simulation configuration for warehouse floor cleaning.
+  </description>
+  <maintainer email="mtradovn@oakland.edu">Micho Radovnikovich</maintainer>
+  <license>BSD</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <exec_depend>ece5532_gazebo</exec_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
