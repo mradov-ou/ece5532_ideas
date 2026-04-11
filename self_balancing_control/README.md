@@ -10,43 +10,48 @@ The goals for this project can be split into three levels of increasing complexi
 
 - Read `teeterbot`'s documentation in the GitHub README to learn how it works.
 - Implement a PID feedback control system in a ROS node that measures the pitch angle using a simulated IMU and balances the robot by controlling the wheel speeds to force the pitch angle to zero.
-- Test the robustness of the controller by applying external force to the self-balancing robot using the `/teeterbot/nudge` service.
+- To control the speed of the wheels, use the `/teeterbot/left_speed_cmd` and `/teeterbot/right_speed_cmd` topics.
+- Test the robustness of the controller by applying external force to the self-balancing robot using the "Apply Force Torque" tool in the Gazebo GUI.
 
 ### Level 2: Implement State Feedback Stabilizer
 
 - Study the state feedback controller design outlined below and implement the controller in a ROS node that subscribes to topics containing the required input data and publishes wheel torque commands to `teeterbot`.
-- The dynamics parameters for the model like the wheel mass and radius, and body mass and length, can be found in the arguments set in `run_simulation.launch`.
-- Modify the provided launch file to expose a wheel torque command interface instead of a wheel speed command interface.
-- Test the robustness of the controller by applying external force to the self-balancing robot using the `/teeterbot/nudge` service.
+- To control the wheel torque, use the `/teeterbot/left_torque_cmd` and `/teeterbot/right_torque_cmd` topics.
+- The dynamics parameters for the model like the wheel mass and radius, and body mass and length, can be found in the `model.sdf` file in the `teeterbot_description` ROS package.
+  - Body mass = 10kg
+  - Body length = 0.8m
+  - Each wheel mass = 1kg
+  - Wheel radius = 0.2m
+- Test the robustness of the controller by applying external force to the self-balancing robot using the "Apply Force Torque" tool in the Gazebo GUI.
 
 ### Level 3: Extend State Feedback Stabilizer
 
-Instead of just balancing the robot and coming to a stop, extend the state feedback stabilizer from Level 2 into a regulator that tracks a speed reference input.
+Instead of just balancing the robot and coming to a stop, extend the state feedback stabilizer from Level 2 into a regulator that tracks a speed reference input from a `std_msgs/Float64` topic.
 
 ## Getting Started
 
 Clone the `teeterbot` self-balancing robot simulator from Github into your ROS workspace: [https://github.com/robustify/teeterbot](https://github.com/robustify/teeterbot)
 
 After cloning, you need to install some missing dependencies. Run `deps.bash` from the root of your ROS workspace folder to automatically install these dependencies:
-```
+```bash
 cd ros
 deps.bash
 ```
 
 The starting point of the system can be started with the provided launch file:
 
+```bash
+ros2 launch self_balancing_control run_simulation.launch.py
 ```
-roslaunch self_balancing_control run_simulation.launch
-```
-Measurements of the current wheel speeds in rad/s are available on the `/teeterbot/left_wheel_speed` and `/teeterbot/right_wheel_speed` topics.
+Measurements of the current wheel speeds in rad/s are available on the `/teeterbot/left_speed` and `/teeterbot/right_speed` topics.
 
 Simulated IMU data is available on `/teeterbot/imu`. The `sensor_msgs/Imu` messages on this topic contain raw accelerometer and gyroscope data in the `linear_acceleration` and `angular_velocity` fields.
 
 The IMU data also contains a quaternion representing the 3D orientation of the vehicle in the `orientation` field. This quaternion can be processed to obtain the pitch angle measurement that is required for feedback in both the PID and state feedback stabilizer algorithms.
 
-The `/teeterbot/fallen_over` topic contains `std_msgs/Bool` messages that indicate if the vehicle has fallen over or not. It would probably help to reset the PID and state feedback controllers when this happens...
+The `/teeterbot/fallen_over` topic contains `std_msgs/Bool` messages that indicate if the vehicle has fallen over or not.
 
-To practice sending control messages to `teeterbot` before implementing the control systems and have the vehicle not continuously tip over, change the `training_wheels` argument in `run_simulation.launch` from false to true. This spawns invisible, frictionless pieces of the robot that makes it always stay upright.
+To practice sending control messages to `teeterbot` before implementing the control systems and have the vehicle not continuously tip over, change the `training_wheels` argument in `run_simulation.launch.py` from false to true. This spawns invisible, frictionless pieces of the robot that makes it always stay upright.
 
 Below is the derivation of the state feedback controller model for Level 2 that can also be extended into a state feedback regulator for Level 3.
 
@@ -216,6 +221,18 @@ A block diagram of the static linear state feedback controller is shown here:
 
 The $K$ matrix is selected in such a way as to place the poles of the system at stable values. This is done by setting the eigenvalues of the $A-BK$ matrix, and then solving for the elements of $K$.
 MATLAB's `place` command is available to do exactly this! [https://www.mathworks.com/help/control/ref/place.html](https://www.mathworks.com/help/control/ref/place.html)
+
+Octave, an open-source alternative to MATLAB, can also be used. In Linux, Octave can be installed using `apt`. The `place` function is in the `control` package that must be installed separately:
+
+```bash
+sudo apt install octave octave-control
+```
+
+After opening the Octave GUI or CLI, the control package must be loaded before the `place` command can be run:
+
+```
+pkg load control
+```
 
 **To compute the output force $F_x$ in your ROS node, you need the three elements of the $K$ matrix designed with `place`, and measurements of $\dot{x}$, $\theta$, and $\dot{\theta}$.**
 
